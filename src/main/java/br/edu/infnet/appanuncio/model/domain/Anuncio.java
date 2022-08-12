@@ -1,8 +1,10 @@
 package br.edu.infnet.appanuncio.model.domain;
 
+import br.edu.infnet.appanuncio.interfaces.IPrinter;
+
 import java.util.Date;
 
-public class Anuncio {
+public class Anuncio implements IPrinter {
 
     private String titulo;
     private String status;
@@ -41,6 +43,7 @@ public class Anuncio {
                 '}';
     }
 
+    @Override
     public void impressao(){
         System.out.println(">>>>>Anuncio<<<<<<<");
         System.out.println(this);

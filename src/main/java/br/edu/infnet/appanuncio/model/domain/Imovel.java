@@ -18,7 +18,7 @@ public class Imovel extends Item {
 
         @Override
         public void impressao(){
-                System.out.println(">>>>>Imovel<<<<<<<");
+                System.out.println("------ Imovel--------");
                 System.out.println(this);
         }
 }

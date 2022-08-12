@@ -1,6 +1,8 @@
 package br.edu.infnet.appanuncio.model.domain;
 
-public class Responsavel {
+import br.edu.infnet.appanuncio.interfaces.IPrinter;
+
+public class Responsavel implements IPrinter {
 
     String nome;
     String telefone;
@@ -24,6 +26,7 @@ public class Responsavel {
                 '}';
     }
 
+    @Override
     public void impressao(){
         System.out.println(">>>>>Responsavel<<<<<<<");
         System.out.println(this);

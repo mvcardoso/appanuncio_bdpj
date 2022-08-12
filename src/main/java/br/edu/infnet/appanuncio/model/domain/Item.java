@@ -1,6 +1,8 @@
 package br.edu.infnet.appanuncio.model.domain;
 
-public abstract class Item {
+import br.edu.infnet.appanuncio.interfaces.IPrinter;
+
+public abstract class Item implements IPrinter {
 
     public String descricaoCompleta;
     public Double preco;
@@ -11,7 +13,11 @@ public abstract class Item {
         return preco;
     }
 
-    public abstract void impressao();
+//    public abstract void impressao();
+//    @Override
+//    public void impressao(){
+//
+//    }
 
     @Override
     public String toString() {
