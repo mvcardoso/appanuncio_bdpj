@@ -7,6 +7,22 @@
     <title>AppAnuncio</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-sm bg-light">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/automovel/lista">Automovel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Comida</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <div class="container mt-3">
     <h2>AppAnuncio</h2>
     <p>Projeto de Gestão de Anúncios</p>
