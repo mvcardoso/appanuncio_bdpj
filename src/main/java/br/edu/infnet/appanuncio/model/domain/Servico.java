@@ -4,7 +4,14 @@ public class Servico extends Item {
 
     public String tipoServico;
     public String redeSocial;
-    public Integer notaAvaliacao;
+    public Double notaAvaliacao;
+
+    @Override
+    public Double calcularPrecoComJuros(){
+        Double mediaNota = notaAvaliacao/2;
+
+        return preco + mediaNota;
+    }
 
     @Override
     public String toString() {
@@ -14,5 +21,11 @@ public class Servico extends Item {
                 ", redeSocial='" + redeSocial + '\'' +
                 ", notaAvaliacao=" + notaAvaliacao +
                 '}';
+    }
+
+    @Override
+    public void impressao(){
+        System.out.println(">>>>>Servico<<<<<<<");
+        System.out.println(this);
     }
 }

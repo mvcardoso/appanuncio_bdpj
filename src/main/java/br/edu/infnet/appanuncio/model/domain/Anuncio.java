@@ -40,4 +40,9 @@ public class Anuncio {
                 ", dataCadastro=" + dataCadastro +
                 '}';
     }
+
+    public void impressao(){
+        System.out.println(">>>>>Anuncio<<<<<<<");
+        System.out.println(this);
+    }
 }

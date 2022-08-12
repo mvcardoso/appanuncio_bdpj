@@ -15,7 +15,7 @@ public class ImovelTeste implements ApplicationRunner {
 
         Imovel i1 = new Imovel();
         i1.id = 0001L;
-        i1.descricao = "Vendo casa de 3 quartos";
+        i1.descricaoCompleta = "Vendo casa de 3 quartos";
         i1.preco = 170.000;
         i1.tipoImovel = "Casa";
         i1.cidade = "Brasilia";
@@ -24,7 +24,7 @@ public class ImovelTeste implements ApplicationRunner {
 
         Imovel i2 = new Imovel();
         i2.id = 0002L;
-        i2.descricao = "Vendo apartamento de 2 quartos";
+        i2.descricaoCompleta = "Vendo apartamento de 2 quartos";
         i2.preco = 120.000;
         i2.tipoImovel = "Apartamento";
         i2.cidade = "São Paulo";
@@ -33,7 +33,7 @@ public class ImovelTeste implements ApplicationRunner {
 
         Imovel i3 = new Imovel();
         i3.id = 0002L;
-        i3.descricao = "Alugo kitnet";
+        i3.descricaoCompleta = "Alugo kitnet";
         i3.preco = 800.00;
         i3.tipoImovel = "Kitnet";
         i3.cidade = "Brasilia";

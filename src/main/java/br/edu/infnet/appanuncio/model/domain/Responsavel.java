@@ -23,4 +23,9 @@ public class Responsavel {
                 ", senha='" + senha + '\'' +
                 '}';
     }
+
+    public void impressao(){
+        System.out.println(">>>>>Responsavel<<<<<<<");
+        System.out.println(this);
+    }
 }

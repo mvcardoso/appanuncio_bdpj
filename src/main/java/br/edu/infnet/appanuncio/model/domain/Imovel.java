@@ -15,4 +15,10 @@ public class Imovel extends Item {
                         ", area=" + area +
                         '}';
         }
+
+        @Override
+        public void impressao(){
+                System.out.println(">>>>>Imovel<<<<<<<");
+                System.out.println(this);
+        }
 }

@@ -6,6 +6,11 @@ public class Automovel extends Item {
     public Integer km;
     public String modelo;
 
+    @Override
+    public Double calcularPrecoComJuros(){
+        Integer valorKm = km > 50 ? 1000:500;
+        return super.calcularPrecoComJuros() + valorKm;
+    }
 
     @Override
     public String toString() {
@@ -16,4 +21,11 @@ public class Automovel extends Item {
                 ", modelo='" + modelo + '\'' +
                 '}';
     }
+
+    @Override
+    public void impressao(){
+        System.out.println("###### Automovel #########");
+        System.out.println(this);
+    }
+
 }
