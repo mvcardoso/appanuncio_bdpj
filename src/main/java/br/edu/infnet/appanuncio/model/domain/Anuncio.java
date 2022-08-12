@@ -45,7 +45,7 @@ public class Anuncio implements IPrinter {
 
     @Override
     public void impressao(){
-        System.out.println(">>>>>Anuncio<<<<<<<");
+        System.out.println(">>>>>Anuncio<<<<<");
         System.out.println(this);
     }
 }
