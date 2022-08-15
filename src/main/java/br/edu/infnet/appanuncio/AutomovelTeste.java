@@ -1,6 +1,7 @@
 package br.edu.infnet.appanuncio;
 
 import br.edu.infnet.appanuncio.model.domain.Automovel;
+import br.edu.infnet.appanuncio.model.test.AppImpressao;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -14,37 +15,37 @@ public class AutomovelTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Automovel a1 = new Automovel();
-        a1.id = 0001L;
-        a1.descricaoCompleta = "Carro completo, economico, IPVA pago...";
-        a1.preco = 40.000;
-        a1.marca = "Honda";
-        a1.modelo = "FIT";
-        a1.km = 70000;
+        a1.setId(0001L);
+        a1.setDescricaoCompleta("Carro completo, economico, IPVA pago...");
+        a1.setPreco(40.000);
+        a1.setMarca("Honda");
+        a1.setModelo("FIT");
+        a1.setKm(70000);
 
 
-        new AppImpressao("++++++++Inclusão Automóvel+++++++++").relatorio(a1);
+        AppImpressao.relatorio("++++++++Inclusão Automóvel+++++++++",a1);
 
 
         Automovel a2 = new Automovel();
-        a2.id = 0002L;
-        a2.descricaoCompleta = "Carro com pouco tempo de uso...";
-        a2.preco = 37.000;
-        a2.marca = "Volkswagen";
-        a2.modelo = "UP";
-        a2.km = 15000;
+        a2.setId(0002L);
+        a2.setDescricaoCompleta("Carro com pouco tempo de uso...");
+        a2.setPreco(37.000);
+        a2.setMarca("Volkswagen");
+        a2.setModelo("UP");
+        a2.setKm(15000);
 
 
-        new AppImpressao("++++++++Inclusão Automóvel+++++++++").relatorio(a2);
+        AppImpressao.relatorio("++++++++Inclusão Automóvel+++++++++",a2);
 
         Automovel a3 = new Automovel();
-        a3.id = 0003L;
-        a3.descricaoCompleta = "Moto em perfeito estado...";
-        a3.preco = 10.000;
-        a3.marca = "Honda";
-        a3.modelo = "BIZ";
-        a3.km = 30000;
+        a3.setId(0003L);
+        a3.setDescricaoCompleta("Moto em perfeito estado...");
+        a3.setPreco(10.000);
+        a3.setMarca("Honda");
+        a3.setModelo("BIZ");
+        a3.setKm(30000);
 
 
-        new AppImpressao("++++++++Inclusão Automóvel+++++++++").relatorio(a3);
+        AppImpressao.relatorio("++++++++Inclusão Automóvel+++++++++",a3);
     }
 }

@@ -2,6 +2,7 @@ package br.edu.infnet.appanuncio;
 
 
 import br.edu.infnet.appanuncio.model.domain.Servico;
+import br.edu.infnet.appanuncio.model.test.AppImpressao;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -16,31 +17,34 @@ public class ServicoTeste implements ApplicationRunner {
     System.out.println(">>>>>>Serviço<<<<<<");
 
     Servico s1 = new Servico();
-    s1.id = 0001L;
-    s1.descricaoCompleta = "Móveis planejados";
-    s1.preco = 100.0;
+    s1.setId(0001L);
+    s1.setDescricaoCompleta("Móveis planejados");
+    s1.setPreco(100.0);
     s1.tipoServico = "Marcenaria";
     s1.redeSocial = "instagram.com/marcenaria";
     s1.notaAvaliacao = 4.0;
-    System.out.println(s1);
+
+    AppImpressao.relatorio("++++++++Inclusão Serviço+++++++++",s1);
 
     Servico s2 = new Servico();
-    s2.id = 0002L;
-    s2.descricaoCompleta = "Serviço de pedreiro";
-    s2.preco = 100.0;
+    s2.setId(0002L);
+    s2.setDescricaoCompleta("Serviço de pedreiro");
+    s2.setPreco(100.0);
     s2.tipoServico = "Pedreiro";
     s2.redeSocial = "instagram.com/pedreiro";
     s2.notaAvaliacao = 3.0;
-    System.out.println(s2);
+
+        AppImpressao.relatorio("++++++++Inclusão Serviço+++++++++",s2);
 
     Servico s3 = new Servico();
-    s3.id = 0001L;
-    s3.descricaoCompleta = "Manicure/Pedicure";
-    s3.preco = 100.0;
+    s3.setId(0001L);
+    s3.setDescricaoCompleta( "Manicure/Pedicure");
+    s3.setPreco(100.0);
     s3.tipoServico = "Estética";
     s3.redeSocial = "instagram.com/manicure";
     s3.notaAvaliacao = 4.0;
-    System.out.println(s3);
+
+        AppImpressao.relatorio("++++++++Inclusão Serviço+++++++++",s3);
 
 
     }

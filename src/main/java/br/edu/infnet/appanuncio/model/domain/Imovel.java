@@ -7,6 +7,11 @@ public class Imovel extends Item {
         public Integer area;
 
         @Override
+        public Double calcularPrecoComJuros() {
+                return getPreco() * 0.015;
+        }
+
+        @Override
         public String toString() {
                 return  super.toString() +
                         "Imovel{" +

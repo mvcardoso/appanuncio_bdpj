@@ -4,14 +4,16 @@ import br.edu.infnet.appanuncio.interfaces.IPrinter;
 
 public abstract class Item implements IPrinter {
 
-    public String descricaoCompleta;
-    public Double preco;
-    public Long id;
+    private String descricaoCompleta;
+    private Double preco;
+    private  Long id;
 
-    public Double calcularPrecoComJuros(){
-        preco += preco * 0.015;
-        return preco;
-    }
+    public abstract Double calcularPrecoComJuros();
+
+//    public Double calcularPrecoComJuros(){
+//        preco += preco * 0.015;
+//        return preco;
+//    }
 
 //    public abstract void impressao();
 //    @Override
@@ -26,5 +28,29 @@ public abstract class Item implements IPrinter {
                 ", preco=" + preco +
                 ", id=" + id + "; Preco com juros: " + calcularPrecoComJuros() +
                 '}';
+    }
+
+    public String getDescricaoCompleta() {
+        return descricaoCompleta;
+    }
+
+    public void setDescricaoCompleta(String descricaoCompleta) {
+        this.descricaoCompleta = descricaoCompleta;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

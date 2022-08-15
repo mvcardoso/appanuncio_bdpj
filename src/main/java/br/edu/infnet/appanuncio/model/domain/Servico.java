@@ -10,7 +10,7 @@ public class Servico extends Item {
     public Double calcularPrecoComJuros(){
         Double mediaNota = notaAvaliacao/2;
 
-        return preco + mediaNota;
+        return getPreco() + mediaNota;
     }
 
     @Override
