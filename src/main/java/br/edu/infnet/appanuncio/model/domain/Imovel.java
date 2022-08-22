@@ -2,9 +2,33 @@ package br.edu.infnet.appanuncio.model.domain;
 
 public class Imovel extends Item {
 
-        public String tipoImovel;
-        public String cidade;
-        public Integer area;
+        private String tipoImovel;
+        private String cidade;
+        private Integer area;
+
+        public String getTipoImovel() {
+                return tipoImovel;
+        }
+
+        public void setTipoImovel(String tipoImovel) {
+                this.tipoImovel = tipoImovel;
+        }
+
+        public String getCidade() {
+                return cidade;
+        }
+
+        public void setCidade(String cidade) {
+                this.cidade = cidade;
+        }
+
+        public Integer getArea() {
+                return area;
+        }
+
+        public void setArea(Integer area) {
+                this.area = area;
+        }
 
         @Override
         public Double calcularPrecoComJuros() {

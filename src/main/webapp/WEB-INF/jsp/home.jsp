@@ -17,7 +17,16 @@
                 <a class="nav-link" href="/automovel/lista">Automovel</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Comida</a>
+                <a class="nav-link" href="/imovel/lista">Imovel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/servico/lista">Serviço</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/anuncio/lista">Anuncio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/responsavel/lista">Responsavel</a>
             </li>
         </ul>
     </div>

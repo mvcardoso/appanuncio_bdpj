@@ -2,11 +2,14 @@ package br.edu.infnet.appanuncio.model.domain;
 
 import br.edu.infnet.appanuncio.interfaces.IPrinter;
 
+import java.util.Objects;
+
 public abstract class Item implements IPrinter {
 
     private String descricaoCompleta;
     private Double preco;
-    private  Long id;
+    private Integer id;
+
 
     public abstract Double calcularPrecoComJuros();
 
@@ -46,11 +49,24 @@ public abstract class Item implements IPrinter {
         this.preco = preco;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return id.equals(item.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

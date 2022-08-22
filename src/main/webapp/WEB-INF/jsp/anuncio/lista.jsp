@@ -37,7 +37,7 @@
     <h2>AppAnuncio</h2>
     <p>Projeto de Gestão de Anúncios</p>
 
-    <h3>Classe: Automovel</h3>
+    <h3>Classe: Anuncio</h3>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -59,26 +59,26 @@
                 <td>${a.marca}</td>
                 <td>${a.km}</td>
                 <td>${a.modelo}</td>
-                <td><a href="/automovel/${a.id}/excluir">Excluir</a></td>
+                <td><a href="/anuncio/${a.id}/excluir">Excluir</a></td>
             </tr>
         </c:forEach>
 
-<%--        <tr>--%>
-<%--            <td>02</td>--%>
-<%--            <td>Integer</td>--%>
-<%--            <td>Kilometragem do automóvel</td>--%>
-<%--            <td>marca</td>--%>
-<%--            <td>String</td>--%>
-<%--            <td>Marca do automóvel</td>--%>
-<%--        </tr>--%>
-<%--        <tr>--%>
-<%--            <td>03</td>--%>
-<%--            <td>String</td>--%>
-<%--            <td>Modelo do automóvel</td>--%>
-<%--            <td>marca</td>--%>
-<%--            <td>String</td>--%>
-<%--            <td>Marca do automóvel</td>--%>
-<%--        </tr>--%>
+        <%--        <tr>--%>
+        <%--            <td>02</td>--%>
+        <%--            <td>Integer</td>--%>
+        <%--            <td>Kilometragem do automóvel</td>--%>
+        <%--            <td>marca</td>--%>
+        <%--            <td>String</td>--%>
+        <%--            <td>Marca do automóvel</td>--%>
+        <%--        </tr>--%>
+        <%--        <tr>--%>
+        <%--            <td>03</td>--%>
+        <%--            <td>String</td>--%>
+        <%--            <td>Modelo do automóvel</td>--%>
+        <%--            <td>marca</td>--%>
+        <%--            <td>String</td>--%>
+        <%--            <td>Marca do automóvel</td>--%>
+        <%--        </tr>--%>
         </tbody>
     </table>
 </div>

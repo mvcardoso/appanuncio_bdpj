@@ -37,48 +37,25 @@
     <h2>AppAnuncio</h2>
     <p>Projeto de Gestão de Anúncios</p>
 
-    <h3>Classe: Automovel</h3>
+    <h3>Classe: Responsavel</h3>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>ID</th>
-            <th>Preco</th>
-            <th>Descricao Completa</th>
-            <th>Marca</th>
-            <th>Km</th>
-            <th>Modelo</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="a" items="${listagem}">
             <tr>
-                <td>${a.id}</td>
-                <td>${a.preco}</td>
-                <td>${a.descricaoCompleta}</td>
-                <td>${a.marca}</td>
-                <td>${a.km}</td>
-                <td>${a.modelo}</td>
-                <td><a href="/automovel/${a.id}/excluir">Excluir</a></td>
+                <td>${a.nome}</td>
+                <td>${a.telefone}</td>
+                <td>${a.email}</td>
+                <td><a href="/responsavel/${a.id}/excluir">Excluir</a></td>
             </tr>
         </c:forEach>
-
-<%--        <tr>--%>
-<%--            <td>02</td>--%>
-<%--            <td>Integer</td>--%>
-<%--            <td>Kilometragem do automóvel</td>--%>
-<%--            <td>marca</td>--%>
-<%--            <td>String</td>--%>
-<%--            <td>Marca do automóvel</td>--%>
-<%--        </tr>--%>
-<%--        <tr>--%>
-<%--            <td>03</td>--%>
-<%--            <td>String</td>--%>
-<%--            <td>Modelo do automóvel</td>--%>
-<%--            <td>marca</td>--%>
-<%--            <td>String</td>--%>
-<%--            <td>Marca do automóvel</td>--%>
-<%--        </tr>--%>
         </tbody>
     </table>
 </div>

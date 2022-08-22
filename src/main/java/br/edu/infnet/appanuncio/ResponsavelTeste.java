@@ -1,5 +1,6 @@
 package br.edu.infnet.appanuncio;
 
+import br.edu.infnet.appanuncio.controller.ResponsavelController;
 import br.edu.infnet.appanuncio.model.domain.Responsavel;
 import br.edu.infnet.appanuncio.model.test.AppImpressao;
 import org.springframework.boot.ApplicationArguments;
@@ -15,12 +16,12 @@ public class ResponsavelTeste implements ApplicationRunner {
         System.out.println(">>>>>>Responsável<<<<<<");
 
         Responsavel r1 = new Responsavel("Marcus", "99999999", "marcus@marcus", "123");
-        AppImpressao.relatorio("++++++++Inclusão Responsável+++++++++",r1);
+        ResponsavelController.incluir(r1);
 
         Responsavel r2 = new Responsavel("Vinicius", "88888888", "vinicius@vinicius", "456");
-        AppImpressao.relatorio("++++++++Inclusão Responsável+++++++++",r2);
+        ResponsavelController.incluir(r2);
 
         Responsavel r3 = new Responsavel("José", "77777777", "jose@jose", "789");
-        AppImpressao.relatorio("++++++++Inclusão Responsável+++++++++",r3);
+        ResponsavelController.incluir(r3);
     }
 }
