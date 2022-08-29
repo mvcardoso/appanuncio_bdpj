@@ -62,23 +62,6 @@
                 <td><a href="/automovel/${a.id}/excluir">Excluir</a></td>
             </tr>
         </c:forEach>
-
-<%--        <tr>--%>
-<%--            <td>02</td>--%>
-<%--            <td>Integer</td>--%>
-<%--            <td>Kilometragem do automóvel</td>--%>
-<%--            <td>marca</td>--%>
-<%--            <td>String</td>--%>
-<%--            <td>Marca do automóvel</td>--%>
-<%--        </tr>--%>
-<%--        <tr>--%>
-<%--            <td>03</td>--%>
-<%--            <td>String</td>--%>
-<%--            <td>Modelo do automóvel</td>--%>
-<%--            <td>marca</td>--%>
-<%--            <td>String</td>--%>
-<%--            <td>Marca do automóvel</td>--%>
-<%--        </tr>--%>
         </tbody>
     </table>
 </div>

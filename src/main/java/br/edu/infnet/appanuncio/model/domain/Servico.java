@@ -1,5 +1,7 @@
 package br.edu.infnet.appanuncio.model.domain;
 
+import br.edu.infnet.appanuncio.model.exceptions.NotaInvalidaException;
+
 public class Servico extends Item {
 
     private String tipoServico;
@@ -31,7 +33,12 @@ public class Servico extends Item {
     }
 
     @Override
-    public Double calcularPrecoComJuros(){
+    public Double calcularPrecoComJuros() throws NotaInvalidaException {
+
+        if (notaAvaliacao < 0 || notaAvaliacao > 5){
+            throw new NotaInvalidaException("Nota inválida. Não pode ser negativa, nem maior que 5");
+        }
+
         Double mediaNota = notaAvaliacao/2;
 
         return getPreco() + mediaNota;

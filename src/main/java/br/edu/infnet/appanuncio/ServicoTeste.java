@@ -3,47 +3,67 @@ package br.edu.infnet.appanuncio;
 
 import br.edu.infnet.appanuncio.controller.ServicoController;
 import br.edu.infnet.appanuncio.model.domain.Servico;
+import br.edu.infnet.appanuncio.model.exceptions.NotaInvalidaException;
 import br.edu.infnet.appanuncio.model.test.AppImpressao;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 @Component
 @Order(4)
 public class ServicoTeste implements ApplicationRunner {
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
-    System.out.println(">>>>>>Serviço<<<<<<");
+    public void run(ApplicationArguments args) {
 
-    Servico s1 = new Servico();
-    s1.setId(1);
-    s1.setDescricaoCompleta("Móveis planejados");
-    s1.setPreco(100.0);
-    s1.setTipoServico("Marcenaria");
-    s1.setRedeSocial("instagram.com/marcenaria");
-    s1.setNotaAvaliacao(4.0);
-    ServicoController.incluir(s1);
+        String dir = "C:\\infnet\\appanuncio\\src\\main\\resources\\";
+        String arq = "servico.txt";
 
-    Servico s2 = new Servico();
-    s2.setId(2);
-    s2.setDescricaoCompleta("Serviço de pedreiro");
-    s2.setPreco(100.0);
-    s2.setTipoServico("Pedreiro");
-    s2.setRedeSocial("instagram.com/pedreiro");
-    s2.setNotaAvaliacao(3.0);
-    ServicoController.incluir(s2);
+        try {
+            try {
+                FileReader fileReader = new FileReader(dir + arq);
+                BufferedReader leitura = new BufferedReader(fileReader);
 
-    Servico s3 = new Servico();
-    s3.setId(3);
-    s3.setDescricaoCompleta( "Manicure/Pedicure");
-    s3.setPreco(100.0);
-    s3.setTipoServico("Estética");
-    s3.setRedeSocial("instagram.com/manicure");
-    s3.setNotaAvaliacao(4.0);
-    ServicoController.incluir(s3);
+                String linha = leitura.readLine();
 
+                while (linha != null) {
+                    try {
+
+                        String[] campos = linha.split(";");
+
+                        Servico s1 = new Servico();
+                        s1.setId(new Integer(campos[0]));
+                        s1.setDescricaoCompleta(campos[1]);
+                        s1.setPreco(new Double(campos[2]));
+                        s1.setTipoServico(campos[3]);
+                        s1.setRedeSocial(campos[4]);
+                        s1.setNotaAvaliacao(new Double(campos[5]));
+                        ServicoController.incluir(s1);
+                        s1.calcularPrecoComJuros();
+                        linha = leitura.readLine();
+                    } catch (NotaInvalidaException e) {
+                        System.out.println(">>>ERRO SERVICO<<<" + e.getMessage());
+                        linha = leitura.readLine();
+                    }
+                }
+                leitura.close();
+                fileReader.close();
+            } catch (FileNotFoundException e) {
+                System.out.println(">>>ARQUIVO AUTOMOVEL NÃO EXISTE<<<<" + e.getMessage());
+            } catch (IOException e) {
+                System.out.println("Problema no fechamento");
+            }
+        } finally {
+            System.out.println("Funcionou");
+        }
+
+        System.out.println();
 
     }
 }

@@ -1,6 +1,9 @@
 package br.edu.infnet.appanuncio.model.domain;
 
 import br.edu.infnet.appanuncio.interfaces.IPrinter;
+import br.edu.infnet.appanuncio.model.exceptions.KilometroInvalidoException;
+import br.edu.infnet.appanuncio.model.exceptions.NotaInvalidaException;
+import br.edu.infnet.appanuncio.model.exceptions.PrecoNegativoException;
 
 import java.util.Objects;
 
@@ -11,25 +14,14 @@ public abstract class Item implements IPrinter {
     private Integer id;
 
 
-    public abstract Double calcularPrecoComJuros();
-
-//    public Double calcularPrecoComJuros(){
-//        preco += preco * 0.015;
-//        return preco;
-//    }
-
-//    public abstract void impressao();
-//    @Override
-//    public void impressao(){
-//
-//    }
+    public abstract Double calcularPrecoComJuros() throws KilometroInvalidoException, PrecoNegativoException, NotaInvalidaException;
 
     @Override
     public String toString() {
         return "Item{" +
                 "descricao='" + descricaoCompleta + '\'' +
                 ", preco=" + preco +
-                ", id=" + id + "; Preco com juros: " + calcularPrecoComJuros() +
+                ", id=" + id +
                 '}';
     }
 

@@ -1,6 +1,7 @@
 package br.edu.infnet.appanuncio.model.domain;
 
 import br.edu.infnet.appanuncio.interfaces.IPrinter;
+import br.edu.infnet.appanuncio.model.exceptions.NomeInvalidoException;
 
 public class Responsavel implements IPrinter {
 
@@ -50,7 +51,15 @@ public class Responsavel implements IPrinter {
         this.id = id;
     }
 
-    public Responsavel(String nome, String telefone, String email, String senha) {
+    public Responsavel(String nome, String telefone, String email, String senha) throws NomeInvalidoException{
+
+        if (nome == null){
+            throw new NomeInvalidoException("Não é possível aceitar nome nulo");
+        }
+
+        if (nome.isEmpty()){
+            throw new NomeInvalidoException("Nome sem preenchimento");
+        }
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;

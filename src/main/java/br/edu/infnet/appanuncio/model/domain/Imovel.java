@@ -1,5 +1,7 @@
 package br.edu.infnet.appanuncio.model.domain;
 
+import br.edu.infnet.appanuncio.model.exceptions.PrecoNegativoException;
+
 public class Imovel extends Item {
 
         private String tipoImovel;
@@ -31,7 +33,11 @@ public class Imovel extends Item {
         }
 
         @Override
-        public Double calcularPrecoComJuros() {
+        public Double calcularPrecoComJuros() throws PrecoNegativoException {
+
+               if (getPreco() < 0) {
+                       throw new PrecoNegativoException("Preço menor que 0");
+               }
                 return getPreco() * 0.015;
         }
 

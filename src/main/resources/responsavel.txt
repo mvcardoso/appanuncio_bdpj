@@ -1,0 +1,4 @@
+Marcus;99999999;marcus@mail;123
+Vinicius;44444444;vinicius@mail;123
+José;77777777;jose@mail;123
+;55555555;jose@mail;123

@@ -31,7 +31,9 @@ public class AutomovelController {
     public static void incluir (Automovel automovel){
         automovel.setId(id++);
         mapaAutomovel.put(automovel.getId(), automovel);
-        AppImpressao.relatorio("++++++++Inclusão Automóvel: " + automovel.getMarca() , automovel);
+        AppImpressao.relatorio("++++++++Inclusão Automóvel++++++++++++++++++++++++++++++++++++++++ "
+                + "\n" + automovel.getMarca(),
+                automovel);
     }
 
 

@@ -1,0 +1,3 @@
+1;Móveis planejados;100.0;Marcenaria;instagram.com/marcenaria;4
+2;Serviço de pedreiro;100.0;Pedreiro;instagram.com/pedreiro;-3
+3;Manicure/Pedicure;100.0;Estética;instagram.com/manicure;2

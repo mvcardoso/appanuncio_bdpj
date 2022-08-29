@@ -42,11 +42,11 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Preco</th>
-            <th>Descricao Completa</th>
-            <th>Marca</th>
-            <th>Km</th>
-            <th>Modelo</th>
+            <th>Titulo</th>
+            <th>Status</th>
+            <th>Data de Cadastro</th>
+            <th>Responsável</th>
+            <th>Itens</th>
             <th></th>
         </tr>
         </thead>
@@ -54,31 +54,14 @@
         <c:forEach var="a" items="${listagem}">
             <tr>
                 <td>${a.id}</td>
-                <td>${a.preco}</td>
-                <td>${a.descricaoCompleta}</td>
-                <td>${a.marca}</td>
-                <td>${a.km}</td>
-                <td>${a.modelo}</td>
+                <td>${a.titulo}</td>
+                <td>${a.status}</td>
+                <td>${a.dataCadastro}</td>
+                <td>${a.responsavel.nome}</td>
+                <td>${a.itens.size()}</td>
                 <td><a href="/anuncio/${a.id}/excluir">Excluir</a></td>
             </tr>
         </c:forEach>
-
-        <%--        <tr>--%>
-        <%--            <td>02</td>--%>
-        <%--            <td>Integer</td>--%>
-        <%--            <td>Kilometragem do automóvel</td>--%>
-        <%--            <td>marca</td>--%>
-        <%--            <td>String</td>--%>
-        <%--            <td>Marca do automóvel</td>--%>
-        <%--        </tr>--%>
-        <%--        <tr>--%>
-        <%--            <td>03</td>--%>
-        <%--            <td>String</td>--%>
-        <%--            <td>Modelo do automóvel</td>--%>
-        <%--            <td>marca</td>--%>
-        <%--            <td>String</td>--%>
-        <%--            <td>Marca do automóvel</td>--%>
-        <%--        </tr>--%>
         </tbody>
     </table>
 </div>
