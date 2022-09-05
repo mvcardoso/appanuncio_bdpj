@@ -8,31 +8,7 @@
     <title>AppAnuncio</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-light">
-    <div class="container-fluid">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/automovel/lista">Automovel</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/imovel/lista">Imovel</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/servico/lista">Serviço</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/anuncio/lista">Anuncio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/responsavel/lista">Responsavel</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
+<c:import url="/WEB-INF/jsp/menu.jsp"/>
 <div class="container mt-3">
     <h2>AppAnuncio</h2>
     <p>Projeto de Gestão de Anúncios</p>
@@ -44,6 +20,7 @@
             <th>Nome</th>
             <th>Email</th>
             <th>Senha</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -52,6 +29,7 @@
                 <td>${u.nome}</td>
                 <td>${u.email}</td>
                 <td>${u.senha}</td>
+                <td><a href="/usuario/${u.email}/excluir">Excluir</a></td>
             </tr>
         </c:forEach>
         </tbody>
