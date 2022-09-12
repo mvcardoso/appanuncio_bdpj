@@ -1,0 +1,9 @@
+P;AppAnuncio;Projeto de gestão de anuncios
+C;Usuario
+A;nome;String;Nome teste
+A;email;String;email@email
+A;senha;String;123
+C;Anuncio
+A;titulo;String;Titulo 01
+A;descricao;String;Descrição 01
+A;dataCadastro;String;08/09/2022
