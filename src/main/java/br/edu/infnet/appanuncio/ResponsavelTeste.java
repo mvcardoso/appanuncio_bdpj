@@ -2,9 +2,13 @@ package br.edu.infnet.appanuncio;
 
 import br.edu.infnet.appanuncio.controller.ResponsavelController;
 import br.edu.infnet.appanuncio.model.domain.Responsavel;
+import br.edu.infnet.appanuncio.model.domain.Usuario;
 import br.edu.infnet.appanuncio.model.exceptions.NomeInvalidoException;
+import br.edu.infnet.appanuncio.service.ResponsavelService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
@@ -13,8 +17,11 @@ import java.io.FileReader;
 import java.io.IOException;
 
 @Component
+@Order(2)
 public class ResponsavelTeste implements ApplicationRunner {
 
+    @Autowired
+    ResponsavelService responsavelService;
 
     @Override
     public void run(ApplicationArguments args)  {
@@ -22,6 +29,9 @@ public class ResponsavelTeste implements ApplicationRunner {
 
         String dir = "C:\\infnet\\appanuncio\\src\\main\\resources\\";
         String arq = "responsavel.txt";
+
+        Usuario usuario = new Usuario();
+        usuario.setId(1);
 
         try {
             try {
@@ -36,7 +46,8 @@ public class ResponsavelTeste implements ApplicationRunner {
                         String[] campos = linha.split(";");
 
                         Responsavel r1 = new Responsavel(campos[0], campos[1], campos[2], campos[3]);
-                        ResponsavelController.incluir(r1);
+                        r1.setUsuario(usuario);
+                        responsavelService.incluir(r1);
                         linha = leitura.readLine();
                     }
                     catch(NomeInvalidoException e) {

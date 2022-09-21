@@ -3,13 +3,35 @@ package br.edu.infnet.appanuncio.model.domain;
 import br.edu.infnet.appanuncio.interfaces.IPrinter;
 import br.edu.infnet.appanuncio.model.exceptions.NomeInvalidoException;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "TResponsavel")
 public class Responsavel implements IPrinter {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private String nome;
     private String telefone;
     private String email;
     private String senha;
-    private Integer id;
+
+
+    @ManyToOne
+    @JoinColumn(name="idUsuario")
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public Responsavel(){}
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public String getNome() {
         return nome;

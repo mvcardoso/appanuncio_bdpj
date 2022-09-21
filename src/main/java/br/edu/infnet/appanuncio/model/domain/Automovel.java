@@ -2,11 +2,17 @@ package br.edu.infnet.appanuncio.model.domain;
 
 import br.edu.infnet.appanuncio.model.exceptions.KilometroInvalidoException;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TAutomovel")
 public class Automovel extends Item {
 
     private String marca;
     private Integer km;
     private String modelo;
+    private boolean garantia;
 
     @Override
     public Double calcularPrecoComJuros() throws KilometroInvalidoException{
@@ -54,5 +60,13 @@ public class Automovel extends Item {
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
+    }
+
+    public boolean isGarantia() {
+        return garantia;
+    }
+
+    public void setGarantia(boolean garantia) {
+        this.garantia = garantia;
     }
 }

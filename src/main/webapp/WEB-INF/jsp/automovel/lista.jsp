@@ -14,6 +14,7 @@
     <p>Projeto de Gestão de Anúncios</p>
 
     <h3>Classe: Automovel</h3>
+    <a href="/automovel">Novo</a>
     <table class="table table-striped">
         <thead>
         <tr>

@@ -5,6 +5,8 @@ import br.edu.infnet.appanuncio.controller.ServicoController;
 import br.edu.infnet.appanuncio.model.domain.Servico;
 import br.edu.infnet.appanuncio.model.exceptions.NotaInvalidaException;
 import br.edu.infnet.appanuncio.model.test.AppImpressao;
+import br.edu.infnet.appanuncio.service.ServicoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -16,8 +18,11 @@ import java.io.FileReader;
 import java.io.IOException;
 
 @Component
-@Order(4)
+@Order(6)
 public class ServicoTeste implements ApplicationRunner {
+
+    @Autowired
+    private ServicoService servicoService;
 
     @Override
     public void run(ApplicationArguments args) {
@@ -44,7 +49,7 @@ public class ServicoTeste implements ApplicationRunner {
                         s1.setTipoServico(campos[3]);
                         s1.setRedeSocial(campos[4]);
                         s1.setNotaAvaliacao(new Double(campos[5]));
-                        ServicoController.incluir(s1);
+                        servicoService.incluir(s1);
                         s1.calcularPrecoComJuros();
                         linha = leitura.readLine();
                     } catch (NotaInvalidaException e) {

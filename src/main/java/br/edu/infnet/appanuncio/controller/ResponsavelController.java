@@ -1,11 +1,16 @@
 package br.edu.infnet.appanuncio.controller;
 
 import br.edu.infnet.appanuncio.model.domain.Responsavel;
+import br.edu.infnet.appanuncio.model.domain.Usuario;
 import br.edu.infnet.appanuncio.model.test.AppImpressao;
+import br.edu.infnet.appanuncio.service.ResponsavelService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -14,34 +19,39 @@ import java.util.Map;
 @Controller
 public class ResponsavelController {
 
-    private static Map<Integer, Responsavel> mapaResponsavel = new HashMap<Integer, Responsavel>();
-    private static Integer id = 1;
+    @Autowired
+    ResponsavelService responsavelService;
 
     @GetMapping(value="/responsavel/lista")
-    public String telaLista(Model model){
-        model.addAttribute("listagem", obterLista());
+    public String telaLista(Model model, @SessionAttribute("user") Usuario usuario ){
+        model.addAttribute("listagem", responsavelService.obterLista(usuario));
         return "responsavel/lista";
     }
 
-    public static void incluir(Responsavel responsavel){
-        responsavel.setId(id++);
-        mapaResponsavel.put(responsavel.getId(), responsavel);
-        AppImpressao.relatorio("", responsavel);
-
+    @GetMapping(value="/responsavel")
+    public String telaCadastro(Model model){
+        model.addAttribute("listagem", responsavelService.obterLista());
+        return "responsavel/cadastro";
     }
 
-    @GetMapping(value = "/responsavel/{id}/excluir")
-    public String exclusao(@PathVariable Integer id){
-        excluir(id);
-        System.out.println("Exclusão de responsavel feita");
+    @PostMapping (value = "/responsavel/incluir")
+    public String incluir(Responsavel responsavel, @SessionAttribute("user") Usuario usuario){
+        responsavel.setUsuario(usuario);
+        responsavelService.incluir(responsavel);
         return "redirect:/responsavel/lista";
     }
 
-    public static Collection<Responsavel> obterLista(){
-        return mapaResponsavel.values();
+//    public static void incluir(Responsavel responsavel){
+//        responsavel.setId(id++);
+//        mapaResponsavel.put(responsavel.getId(), responsavel);
+//        AppImpressao.relatorio("", responsavel);
+//
+//    }
+
+    @GetMapping(value = "/responsavel/{id}/excluir")
+    public String excluir(@PathVariable Integer id){
+        responsavelService.excluir(id);
+        return "redirect:/responsavel/lista";
     }
 
-    public static void excluir(Integer id){
-        mapaResponsavel.remove(id);
-    }
 }

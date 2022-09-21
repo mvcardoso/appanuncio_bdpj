@@ -2,6 +2,12 @@ package br.edu.infnet.appanuncio.model.domain;
 
 import br.edu.infnet.appanuncio.model.exceptions.PrecoNegativoException;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "TImovel")
 public class Imovel extends Item {
 
         private String tipoImovel;

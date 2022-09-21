@@ -5,7 +5,9 @@ import br.edu.infnet.appanuncio.controller.ImovelController;
 import br.edu.infnet.appanuncio.model.domain.Imovel;
 import br.edu.infnet.appanuncio.model.exceptions.PrecoNegativoException;
 import br.edu.infnet.appanuncio.model.test.AppImpressao;
+import br.edu.infnet.appanuncio.service.ImovelService;
 import ch.qos.logback.core.util.InvocationGate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -17,8 +19,12 @@ import java.io.FileReader;
 import java.io.IOException;
 
 @Component
-@Order(3)
+@Order(5)
 public class ImovelTeste implements ApplicationRunner {
+
+    @Autowired
+    private ImovelService imovelService;
+
     @Override
     public void run(ApplicationArguments args) {
 
@@ -44,7 +50,7 @@ public class ImovelTeste implements ApplicationRunner {
                         i1.setTipoImovel(campos[3]);
                         i1.setCidade(campos[4]);
                         i1.setArea(new Integer(campos[5]));
-                        ImovelController.incluir(i1);
+                        imovelService.incluir(i1);
                         i1.calcularPrecoComJuros();
                         linha = leitura.readLine();
                     } catch (PrecoNegativoException e) {
@@ -66,37 +72,5 @@ public class ImovelTeste implements ApplicationRunner {
         }
         System.out.println();
     }
-
-
-//        try {
-//            Imovel i2 = new Imovel();
-//            i2.setId(2);
-//            i2.setDescricaoCompleta("Vendo apartamento de 2 quartos");
-//            i2.setPreco(120.000);
-//            i2.setTipoImovel("Apartamento");
-//            i2.setCidade("São Paulo");
-//            i2.setArea(50);
-//            ImovelController.incluir(i2);
-//            i2.calcularPrecoComJuros();
-//        } catch (PrecoNegativoException e) {
-//            System.out.println(">>ERRO IMOVEL<<" + e.getMessage());
-//        }
-//
-//
-//
-//        try {
-//            Imovel i3 = new Imovel();
-//            i3.setId(3);
-//            i3.setDescricaoCompleta("Alugo kitnet");
-//            i3.setPreco(800.00);
-//            i3.setTipoImovel("Kitnet");
-//            i3.setCidade("Brasilia");
-//            i3.setArea(40);
-//            ImovelController.incluir(i3);
-//            i3.calcularPrecoComJuros();
-//        } catch (PrecoNegativoException e) {
-//            System.out.println(">>ERRO IMOVEL<<" + e.getMessage());
-//        }
-
 }
 

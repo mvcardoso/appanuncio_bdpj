@@ -4,6 +4,8 @@ import br.edu.infnet.appanuncio.controller.AutomovelController;
 import br.edu.infnet.appanuncio.model.domain.Automovel;
 import br.edu.infnet.appanuncio.model.exceptions.KilometroInvalidoException;
 import br.edu.infnet.appanuncio.model.test.AppImpressao;
+import br.edu.infnet.appanuncio.service.AutomovelService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -15,9 +17,11 @@ import java.io.FileReader;
 import java.io.IOException;
 
 @Component
-@Order(2)
+@Order(3)
 public class AutomovelTeste implements ApplicationRunner {
 
+    @Autowired
+    AutomovelService automovelService;
 
     @Override
     public void run(ApplicationArguments args)  {
@@ -46,7 +50,7 @@ public class AutomovelTeste implements ApplicationRunner {
                         a1.setMarca(campos[3]);
                         a1.setModelo(campos[4]);
                         a1.setKm(new Integer(campos[5]));
-                        AutomovelController.incluir(a1);
+                        automovelService.incluir(a1);
                         System.out.println(a1.calcularPrecoComJuros());
                         linha = leitura.readLine();
                     } catch (KilometroInvalidoException e) {
@@ -68,36 +72,6 @@ public class AutomovelTeste implements ApplicationRunner {
         }
 
         System.out.println();
-
-//        try {
-//            Automovel a2 = new Automovel();
-//            a2.setId(2);
-//            a2.setDescricaoCompleta("Carro com pouco tempo de uso...");
-//            a2.setPreco(37.000);
-//            a2.setMarca("Volkswagen");
-//            a2.setModelo("UP");
-//            a2.setKm(15000);
-//            System.out.println(a2.calcularPrecoComJuros());
-//            AutomovelController.incluir(a2);
-//        } catch (KilometroInvalidoException e) {
-//            System.out.println(">>>ERRO AUTOMOVEL<<<<" + e.getMessage());
-//        }
-//
-//
-//
-//        try {
-//            Automovel a3 = new Automovel();
-//            a3.setId(3);
-//            a3.setDescricaoCompleta("Moto em perfeito estado...");
-//            a3.setPreco(10.000);
-//            a3.setMarca("Honda");
-//            a3.setModelo("BIZ");
-//            a3.setKm(30000);
-//            System.out.println(a3.calcularPrecoComJuros());
-//            AutomovelController.incluir(a3);
-//        } catch (KilometroInvalidoException e) {
-//            System.out.println(">>>ERRO AUTOMOVEL<<<<" + e.getMessage());
-//        }
 
     }
 }

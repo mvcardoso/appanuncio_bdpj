@@ -5,12 +5,20 @@ import br.edu.infnet.appanuncio.model.exceptions.KilometroInvalidoException;
 import br.edu.infnet.appanuncio.model.exceptions.NotaInvalidaException;
 import br.edu.infnet.appanuncio.model.exceptions.PrecoNegativoException;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+
+@Entity
+@Table(name = "TItem")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Item implements IPrinter {
 
     private String descricaoCompleta;
     private Double preco;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
 

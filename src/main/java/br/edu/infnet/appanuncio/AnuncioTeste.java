@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Component
-@Order(1)
+@Order(4)
 public class AnuncioTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args)  {

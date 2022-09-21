@@ -2,6 +2,12 @@ package br.edu.infnet.appanuncio.model.domain;
 
 import br.edu.infnet.appanuncio.model.exceptions.NotaInvalidaException;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "TServico")
 public class Servico extends Item {
 
     private String tipoServico;

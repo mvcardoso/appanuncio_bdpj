@@ -3,13 +3,43 @@ package br.edu.infnet.appanuncio.model.domain;
 import br.edu.infnet.appanuncio.interfaces.IPrinter;
 import br.edu.infnet.appanuncio.model.exceptions.NomeInvalidoException;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "TUsuario")
 public class Usuario implements IPrinter {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private String nome;
     private String telefone;
     private String email;
     private String senha;
-    private Integer id;
+
+    @OneToMany
+    @JoinColumn(name="idUsuario")
+    private List<Responsavel> responsavel;
+
+    public Usuario() {}
+
+    @Override
+    public String toString() {
+        return "Responsavel{" +
+                "nome='" + nome + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                '}';
+    }
+
+    @Override
+    public void impressao(){
+        System.out.println(">>>>>Responsavel<<<<<<<");
+        System.out.println(this);
+    }
 
     public String getNome() {
         return nome;
@@ -51,23 +81,12 @@ public class Usuario implements IPrinter {
         this.id = id;
     }
 
-    public Usuario() {
-
+    public List<Responsavel> getResponsavel() {
+        return responsavel;
     }
 
-    @Override
-    public String toString() {
-        return "Responsavel{" +
-                "nome='" + nome + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                '}';
+    public void setResponsavel(List<Responsavel> responsavel) {
+        this.responsavel = responsavel;
     }
 
-    @Override
-    public void impressao(){
-        System.out.println(">>>>>Responsavel<<<<<<<");
-        System.out.println(this);
-    }
 }

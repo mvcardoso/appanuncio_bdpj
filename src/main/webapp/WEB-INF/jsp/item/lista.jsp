@@ -13,30 +13,25 @@
     <h2>AppAnuncio</h2>
     <p>Projeto de Gestão de Anúncios</p>
 
-    <h3>Classe: Serviço</h3>
-    <a href="/servico">Novo</a>
+    <h3>Classe: Item</h3>
+    <a href="/item">Novo</a>
     <table class="table table-striped">
         <thead>
         <tr>
             <th>ID</th>
-            <th>Preco</th>
-            <th>Descricao Completa</th>
-            <th>Tipo de Serviço</th>
-            <th>Site/Rede Social</th>
-            <th>Avaliação</th>
+            <th>Descrição Completa</th>
+            <th>Preço</th>
+            <th>Email</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="a" items="${listagem}">
+        <c:forEach var="i" items="${listagem}">
             <tr>
-                <td>${a.id}</td>
-                <td>${a.preco}</td>
-                <td>${a.descricaoCompleta}</td>
-                <td>${a.tipoServico}</td>
-                <td>${a.redeSocial}</td>
-                <td>${a.notaAvaliacao}</td>
-                <td><a href="/servico/${a.id}/excluir">Excluir</a></td>
+                <td>${i.id}</td>
+                <td>${i.descricaoCompleta}</td>
+                <td>${i.preco}</td>
+                <td><a href="/item/${i.id}/excluir">Excluir</a></td>
             </tr>
         </c:forEach>
         </tbody>

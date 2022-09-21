@@ -14,21 +14,26 @@
     <p>Projeto de Gestão de Anúncios</p>
 
     <h3>Classe: Responsavel</h3>
+    <a href="/responsavel">Novo</a>
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Nome</th>
             <th>Telefone</th>
             <th>Email</th>
+            <th>Usuario</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="a" items="${listagem}">
             <tr>
+                <td>${a.id}</td>
                 <td>${a.nome}</td>
                 <td>${a.telefone}</td>
                 <td>${a.email}</td>
+                <td>${a.usuario.email}</td>
                 <td><a href="/responsavel/${a.id}/excluir">Excluir</a></td>
             </tr>
         </c:forEach>
