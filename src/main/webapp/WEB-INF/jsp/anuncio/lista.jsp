@@ -14,12 +14,12 @@
     <p>Projeto de Gestão de Anúncios</p>
 
     <h3>Classe: Anuncio</h3>
+    <a href="/anuncio">Novo</a>
     <table class="table table-striped">
         <thead>
         <tr>
             <th>ID</th>
             <th>Titulo</th>
-            <th>Status</th>
             <th>Data de Cadastro</th>
             <th>Responsável</th>
             <th>Itens</th>
@@ -31,7 +31,6 @@
             <tr>
                 <td>${a.id}</td>
                 <td>${a.titulo}</td>
-                <td>${a.status}</td>
                 <td>${a.dataCadastro}</td>
                 <td>${a.responsavel.nome}</td>
                 <td>${a.itens.size()}</td>

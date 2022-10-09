@@ -19,12 +19,15 @@ import java.util.Map;
 @Controller
 public class ResponsavelController {
 
+    private String mensagem;
+
     @Autowired
     ResponsavelService responsavelService;
 
     @GetMapping(value="/responsavel/lista")
     public String telaLista(Model model, @SessionAttribute("user") Usuario usuario ){
         model.addAttribute("listagem", responsavelService.obterLista(usuario));
+        model.addAttribute("mensagem", mensagem);
         return "responsavel/lista";
     }
 
@@ -38,6 +41,8 @@ public class ResponsavelController {
     public String incluir(Responsavel responsavel, @SessionAttribute("user") Usuario usuario){
         responsavel.setUsuario(usuario);
         responsavelService.incluir(responsavel);
+
+        mensagem = "Inclusão do responsável "+ responsavel.getNome() +" realizada com sucesso";
         return "redirect:/responsavel/lista";
     }
 
@@ -50,7 +55,16 @@ public class ResponsavelController {
 
     @GetMapping(value = "/responsavel/{id}/excluir")
     public String excluir(@PathVariable Integer id){
-        responsavelService.excluir(id);
+
+        try {
+            responsavelService.excluir(id);
+            mensagem = "Exclusão  do responsável "+ id +" realizada com sucesso";
+        }
+        catch (Exception e){
+            System.out.println("[ERRO]" + e.getMessage());
+        }
+
+
         return "redirect:/responsavel/lista";
     }
 

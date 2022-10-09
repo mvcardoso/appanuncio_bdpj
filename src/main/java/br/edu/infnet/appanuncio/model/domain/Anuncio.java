@@ -4,22 +4,39 @@ import br.edu.infnet.appanuncio.interfaces.IPrinter;
 import br.edu.infnet.appanuncio.model.exceptions.AnuncioSemItemException;
 import br.edu.infnet.appanuncio.model.exceptions.ResponsavelNuloException;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+@Entity
+@Table(name = "TAnuncio")
 public class Anuncio implements IPrinter {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @OneToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "idResponsavel")
+    private Responsavel responsavel;
+
+    @ManyToMany(cascade = CascadeType.DETACH)
+    private Set<Item> itens;
+
+    @ManyToOne
+    @JoinColumn(name="idUsuario")
+    private Usuario usuario;
+
     private String titulo;
     private String status;
     private LocalDateTime dataCadastro;
-    private Responsavel responsavel;
-    private Set<Item> itens;
 
-
+    public Anuncio(){
+        this.dataCadastro = LocalDateTime.now();
+    }
 
     public Anuncio(Responsavel responsavel, Set<Item> itens) throws ResponsavelNuloException, AnuncioSemItemException {
-
+        this();
         if (responsavel == null) {
             throw new ResponsavelNuloException("Responsável não pode ser nulo");
         }
@@ -32,7 +49,6 @@ public class Anuncio implements IPrinter {
             throw new AnuncioSemItemException("Anúncio deve ter item");
         }
 
-        this.dataCadastro = LocalDateTime.now();
         this.responsavel = responsavel;
         this.itens = itens;
     }
@@ -88,5 +104,13 @@ public class Anuncio implements IPrinter {
                 " \n" + responsavel +
                 "\nQuantidade de Anuncios=" + itens.size() +
                 '}';
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

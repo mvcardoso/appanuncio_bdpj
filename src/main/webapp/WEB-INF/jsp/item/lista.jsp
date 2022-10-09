@@ -21,7 +21,6 @@
             <th>ID</th>
             <th>Descrição Completa</th>
             <th>Preço</th>
-            <th>Email</th>
             <th></th>
         </tr>
         </thead>

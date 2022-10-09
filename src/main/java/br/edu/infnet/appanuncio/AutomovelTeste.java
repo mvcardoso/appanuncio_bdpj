@@ -2,6 +2,7 @@ package br.edu.infnet.appanuncio;
 
 import br.edu.infnet.appanuncio.controller.AutomovelController;
 import br.edu.infnet.appanuncio.model.domain.Automovel;
+import br.edu.infnet.appanuncio.model.domain.Usuario;
 import br.edu.infnet.appanuncio.model.exceptions.KilometroInvalidoException;
 import br.edu.infnet.appanuncio.model.test.AppImpressao;
 import br.edu.infnet.appanuncio.service.AutomovelService;
@@ -25,6 +26,9 @@ public class AutomovelTeste implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args)  {
+
+        Usuario usuario = new Usuario();
+        usuario.setId(1);
 
         String dir = "C:\\infnet\\appanuncio\\src\\main\\resources\\";
         String arq = "automovel.txt";
@@ -50,6 +54,7 @@ public class AutomovelTeste implements ApplicationRunner {
                         a1.setMarca(campos[3]);
                         a1.setModelo(campos[4]);
                         a1.setKm(new Integer(campos[5]));
+                        a1.setUsuario(usuario);
                         automovelService.incluir(a1);
                         System.out.println(a1.calcularPrecoComJuros());
                         linha = leitura.readLine();

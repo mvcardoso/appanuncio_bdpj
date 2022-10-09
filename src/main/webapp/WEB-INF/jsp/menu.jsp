@@ -27,6 +27,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/responsavel/lista">Responsavel</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/item/lista">Item</a>
+                </li>
             </c:if>
         </ul>
         <ul class="navbar-nav">

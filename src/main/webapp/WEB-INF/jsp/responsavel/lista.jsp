@@ -10,6 +10,12 @@
 <body>
 <c:import url="/WEB-INF/jsp/menu.jsp"/>
 <div class="container mt-3">
+
+    <c:if test="${not empty mensagem}">
+    <div class="alert alert-info">
+        <strong>Informação</strong> ${mensagem}
+    </div>
+    </c:if>
     <h2>AppAnuncio</h2>
     <p>Projeto de Gestão de Anúncios</p>
 

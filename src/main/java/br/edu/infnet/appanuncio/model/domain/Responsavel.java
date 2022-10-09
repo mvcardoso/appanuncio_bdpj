@@ -13,15 +13,16 @@ public class Responsavel implements IPrinter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name="idUsuario")
+    private Usuario usuario;
+
     private String nome;
     private String telefone;
     private String email;
     private String senha;
 
 
-    @ManyToOne
-    @JoinColumn(name="idUsuario")
-    private Usuario usuario;
 
     public Usuario getUsuario() {
         return usuario;

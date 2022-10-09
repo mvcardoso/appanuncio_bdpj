@@ -14,14 +14,22 @@ public class Usuario implements IPrinter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @OneToMany
+    @JoinColumn(name="idUsuario")
+    private List<Responsavel> responsavel;
+
+    @OneToMany
+    @JoinColumn(name="idUsuario")
+    private List<Item> item;
+
+    @OneToMany
+    @JoinColumn(name="idUsuario")
+    private List<Anuncio> anuncio;
+
     private String nome;
     private String telefone;
     private String email;
     private String senha;
-
-    @OneToMany
-    @JoinColumn(name="idUsuario")
-    private List<Responsavel> responsavel;
 
     public Usuario() {}
 
@@ -89,4 +97,19 @@ public class Usuario implements IPrinter {
         this.responsavel = responsavel;
     }
 
+    public List<Item> getItem() {
+        return item;
+    }
+
+    public void setItem(List<Item> item) {
+        this.item = item;
+    }
+
+    public List<Anuncio> getAnuncio() {
+        return anuncio;
+    }
+
+    public void setAnuncio(List<Anuncio> anuncio) {
+        this.anuncio = anuncio;
+    }
 }
