@@ -18,7 +18,7 @@ public class AnuncioService {
     public void incluir (Anuncio anuncio){
         anuncioRepository.save(anuncio);
 
-        //AppImpressao.relatorio("Anuncio cadastrado", anuncio);
+        AppImpressao.relatorio("Anuncio cadastrado", anuncio);
     }
 
     public Collection<Anuncio> obterLista(){

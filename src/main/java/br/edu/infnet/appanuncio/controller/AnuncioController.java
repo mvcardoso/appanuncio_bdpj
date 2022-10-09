@@ -31,9 +31,6 @@ public class AnuncioController {
     @Autowired
     private ItemService itemService;
 
-    private static Map<Integer, Anuncio> mapaAnuncio = new HashMap<Integer, Anuncio>();
-    private static Integer id = 1;
-
     @GetMapping(value = "/anuncio")
     public String telaCadastro(Model model, @SessionAttribute("user") Usuario usuario){
         model.addAttribute("responsavel", responsavelService.obterLista(usuario));
@@ -59,15 +56,6 @@ public class AnuncioController {
          anuncio.setUsuario(usuario);
          anuncioService.incluir(anuncio);
         return "redirect:/anuncio/lista";
-    }
-
-
-    public static Collection<Anuncio> obterLista(){
-        return mapaAnuncio.values();
-    }
-
-    public static void excluir(Integer id){
-        mapaAnuncio.remove(id);
     }
 
 
