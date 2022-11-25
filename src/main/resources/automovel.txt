@@ -1,2 +1,0 @@
-1;Carro completo, economico, IPVA pago, ...;50.000;Honda;FIT;30
-2;Moto economica em perfeito estado;10.000;Honda;BIZ;10

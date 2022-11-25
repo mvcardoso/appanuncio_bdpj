@@ -1,2 +1,0 @@
-Vinicius;vinicius@teste;123
-Jose;jose@teste;123

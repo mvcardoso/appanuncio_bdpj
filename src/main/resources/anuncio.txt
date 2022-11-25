@@ -1,1 +1,0 @@
-Anuncio 01;Ativo;Marcus;99999999;marcus@marcus;123
