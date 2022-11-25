@@ -2,7 +2,6 @@ package br.edu.infnet.appanuncio.service;
 
 import br.edu.infnet.appanuncio.model.domain.Servico;
 import br.edu.infnet.appanuncio.model.repository.ServicoRepository;
-import br.edu.infnet.appanuncio.model.test.AppImpressao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +16,6 @@ public class ServicoService {
 
     public void incluir (Servico servico){
         servicoRepository.save(servico);
-        AppImpressao.relatorio("++++++++Inclusão Serviço+++++++++++++++++++++++++++++++++++++ "
-                        + "\n",
-                servico);
     }
 
 

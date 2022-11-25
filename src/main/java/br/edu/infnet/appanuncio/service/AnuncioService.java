@@ -3,7 +3,6 @@ package br.edu.infnet.appanuncio.service;
 import br.edu.infnet.appanuncio.model.domain.Anuncio;
 import br.edu.infnet.appanuncio.model.domain.Usuario;
 import br.edu.infnet.appanuncio.model.repository.AnuncioRepository;
-import br.edu.infnet.appanuncio.model.test.AppImpressao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +16,6 @@ public class AnuncioService {
 
     public void incluir (Anuncio anuncio){
         anuncioRepository.save(anuncio);
-
-        AppImpressao.relatorio("Anuncio cadastrado", anuncio);
     }
 
     public Collection<Anuncio> obterLista(){

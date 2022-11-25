@@ -2,7 +2,6 @@ package br.edu.infnet.appanuncio.controller;
 
 import br.edu.infnet.appanuncio.model.domain.Responsavel;
 import br.edu.infnet.appanuncio.model.domain.Usuario;
-import br.edu.infnet.appanuncio.model.test.AppImpressao;
 import br.edu.infnet.appanuncio.service.ResponsavelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,10 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class ResponsavelController {

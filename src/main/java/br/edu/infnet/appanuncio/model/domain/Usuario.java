@@ -1,14 +1,11 @@
 package br.edu.infnet.appanuncio.model.domain;
 
-import br.edu.infnet.appanuncio.interfaces.IPrinter;
-import br.edu.infnet.appanuncio.model.exceptions.NomeInvalidoException;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "TUsuario")
-public class Usuario implements IPrinter {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +30,13 @@ public class Usuario implements IPrinter {
 
     public Usuario() {}
 
+    public Usuario(String nome, String telefone, String email, String senha) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
+    }
+
     @Override
     public String toString() {
         return "Responsavel{" +
@@ -41,12 +45,6 @@ public class Usuario implements IPrinter {
                 ", email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
                 '}';
-    }
-
-    @Override
-    public void impressao(){
-        System.out.println(">>>>>Responsavel<<<<<<<");
-        System.out.println(this);
     }
 
     public String getNome() {

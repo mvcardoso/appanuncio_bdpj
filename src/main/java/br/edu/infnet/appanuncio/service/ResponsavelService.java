@@ -3,7 +3,6 @@ package br.edu.infnet.appanuncio.service;
 import br.edu.infnet.appanuncio.model.domain.Responsavel;
 import br.edu.infnet.appanuncio.model.domain.Usuario;
 import br.edu.infnet.appanuncio.model.repository.ResponsavelRepository;
-import br.edu.infnet.appanuncio.model.test.AppImpressao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +17,6 @@ public class ResponsavelService {
 
     public void incluir(Responsavel responsavel){
         responsavelRepository.save(responsavel);
-        AppImpressao.relatorio("Inclusão do Responsável", responsavel);
     }
 
     public Collection<Responsavel> obterLista(){

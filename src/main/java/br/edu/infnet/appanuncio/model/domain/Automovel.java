@@ -1,7 +1,5 @@
 package br.edu.infnet.appanuncio.model.domain;
 
-import br.edu.infnet.appanuncio.model.exceptions.KilometroInvalidoException;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -14,14 +12,16 @@ public class Automovel extends Item {
     private String modelo;
     private boolean garantia;
 
-    @Override
-    public Double calcularPrecoComJuros() throws KilometroInvalidoException{
-        if(km < 0){
-            throw new KilometroInvalidoException("Kilometro abaixo de 0");
-        }
-        Integer valorKm = km > 50 ? 1000:500;
-        return getPreco() + valorKm;
+    public Automovel(){
     }
+
+    public Automovel(String marca, Integer km, String modelo, boolean garantia) {
+        this.marca = marca;
+        this.km = km;
+        this.modelo = modelo;
+        this.garantia = garantia;
+    }
+
 
     @Override
     public String toString() {
@@ -31,11 +31,6 @@ public class Automovel extends Item {
                 ", km=" + km +
                 ", modelo='" + modelo + '\'' +
                 '}';
-    }
-
-    @Override
-    public void impressao(){
-      System.out.println(this);
     }
 
     public String getMarca() {

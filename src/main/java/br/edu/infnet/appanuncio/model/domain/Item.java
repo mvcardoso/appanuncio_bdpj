@@ -1,12 +1,6 @@
 package br.edu.infnet.appanuncio.model.domain;
 
-import br.edu.infnet.appanuncio.interfaces.IPrinter;
-import br.edu.infnet.appanuncio.model.exceptions.KilometroInvalidoException;
-import br.edu.infnet.appanuncio.model.exceptions.NotaInvalidaException;
-import br.edu.infnet.appanuncio.model.exceptions.PrecoNegativoException;
-
 import javax.persistence.*;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -14,13 +8,13 @@ import java.util.Set;
 @Entity
 @Table(name = "TItem")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Item implements IPrinter {
+public abstract class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="idUsuario")
     private Usuario usuario;
 
@@ -30,7 +24,7 @@ public abstract class Item implements IPrinter {
     private String descricaoCompleta;
     private Double preco;
 
-    public abstract Double calcularPrecoComJuros() throws KilometroInvalidoException, PrecoNegativoException, NotaInvalidaException;
+
 
     @Override
     public String toString() {

@@ -3,7 +3,6 @@ package br.edu.infnet.appanuncio.service;
 import br.edu.infnet.appanuncio.model.domain.Automovel;
 import br.edu.infnet.appanuncio.model.domain.Usuario;
 import br.edu.infnet.appanuncio.model.repository.AutomovelRepository;
-import br.edu.infnet.appanuncio.model.test.AppImpressao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +17,7 @@ public class AutomovelService {
 
     public void incluir (Automovel automovel){
         automovelRepository.save(automovel);
-        AppImpressao.relatorio("++++++++Inclusão Automóvel++++++++++++++++++++++++++++++++++++++++ "
-                        + "\n" + automovel.getMarca(),
-                automovel);
+
     }
 
 

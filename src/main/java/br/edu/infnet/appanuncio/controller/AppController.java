@@ -1,9 +1,6 @@
 package br.edu.infnet.appanuncio.controller;
 
 import br.edu.infnet.appanuncio.model.domain.Usuario;
-import br.edu.infnet.appanuncio.model.domain.app.Projeto;
-import br.edu.infnet.appanuncio.model.test.AppImpressao;
-import br.edu.infnet.appanuncio.service.AppService;
 import br.edu.infnet.appanuncio.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 
 @SessionAttributes("user")
@@ -24,13 +20,11 @@ public class AppController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @Autowired
-    private AppService appService;
 
     @GetMapping(value = "/")
     public String telaHome(Model model){
 
-        model.addAttribute("projeto", appService.obterProjeto());
+        //model.addAttribute("projeto", appService.obterProjeto());
         return "home";
     }
 

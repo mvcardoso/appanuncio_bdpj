@@ -1,13 +1,10 @@
 package br.edu.infnet.appanuncio.model.domain;
 
-import br.edu.infnet.appanuncio.interfaces.IPrinter;
-import br.edu.infnet.appanuncio.model.exceptions.NomeInvalidoException;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "TResponsavel")
-public class Responsavel implements IPrinter {
+public class Responsavel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -74,15 +71,8 @@ public class Responsavel implements IPrinter {
         this.id = id;
     }
 
-    public Responsavel(String nome, String telefone, String email, String senha) throws NomeInvalidoException{
+    public Responsavel(String nome, String telefone, String email, String senha) {
 
-        if (nome == null){
-            throw new NomeInvalidoException("Não é possível aceitar nome nulo");
-        }
-
-        if (nome.isEmpty()){
-            throw new NomeInvalidoException("Nome sem preenchimento");
-        }
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
@@ -99,9 +89,4 @@ public class Responsavel implements IPrinter {
                 '}';
     }
 
-    @Override
-    public void impressao(){
-        System.out.println(">>>>>Responsavel<<<<<<<");
-        System.out.println(this);
-    }
 }

@@ -1,7 +1,5 @@
 package br.edu.infnet.appanuncio.model.domain;
 
-import br.edu.infnet.appanuncio.model.exceptions.PrecoNegativoException;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -38,14 +36,6 @@ public class Imovel extends Item {
                 this.area = area;
         }
 
-        @Override
-        public Double calcularPrecoComJuros() throws PrecoNegativoException {
-
-               if (getPreco() < 0) {
-                       throw new PrecoNegativoException("Preço menor que 0");
-               }
-                return getPreco() * 0.015;
-        }
 
         @Override
         public String toString() {
@@ -57,9 +47,4 @@ public class Imovel extends Item {
                         '}';
         }
 
-        @Override
-        public void impressao(){
-                System.out.println("------ Imovel--------");
-                System.out.println(this);
-        }
 }

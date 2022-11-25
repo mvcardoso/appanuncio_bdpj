@@ -1,7 +1,5 @@
 package br.edu.infnet.appanuncio.model.domain;
 
-import br.edu.infnet.appanuncio.model.exceptions.NotaInvalidaException;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -38,17 +36,6 @@ public class Servico extends Item {
         this.notaAvaliacao = notaAvaliacao;
     }
 
-    @Override
-    public Double calcularPrecoComJuros() throws NotaInvalidaException {
-
-        if (notaAvaliacao < 0 || notaAvaliacao > 5){
-            throw new NotaInvalidaException("Nota inválida. Não pode ser negativa, nem maior que 5");
-        }
-
-        Double mediaNota = notaAvaliacao/2;
-
-        return getPreco() + mediaNota;
-    }
 
     @Override
     public String toString() {
@@ -60,9 +47,4 @@ public class Servico extends Item {
                 '}';
     }
 
-    @Override
-    public void impressao(){
-        System.out.println(">>>>>Servico<<<<<<<");
-        System.out.println(this);
-    }
 }
