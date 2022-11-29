@@ -15,7 +15,7 @@
         <form action="/usuario/incluir" method="post">
             <div class="mb-3 mt-3">
                 <label>Nome:</label>
-                <input type="email" class="form-control" placeholder="Entre com o seu nome" name="nome">
+                <input type="nome" class="form-control" placeholder="Entre com o seu nome" name="nome">
             </div>
             <div class="mb-3 mt-3">
                 <label>Email:</label>

@@ -29,7 +29,6 @@ public class UsuarioController {
 
     @PostMapping(value = "/usuario/incluir")
     public String incluir(Usuario usuario){
-        System.out.println("Cadastrou! " + usuario.getNome());
         usuarioService.incluir(usuario);
         return "redirect:/";
     }

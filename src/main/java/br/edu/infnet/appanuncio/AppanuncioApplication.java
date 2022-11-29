@@ -1,10 +1,7 @@
 package br.edu.infnet.appanuncio;
 
 import br.edu.infnet.appanuncio.model.domain.*;
-import br.edu.infnet.appanuncio.model.repository.AnuncioRepository;
-import br.edu.infnet.appanuncio.model.repository.AutomovelRepository;
-import br.edu.infnet.appanuncio.model.repository.ItemRepository;
-import br.edu.infnet.appanuncio.model.repository.ResponsavelRepository;
+import br.edu.infnet.appanuncio.model.repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,22 +23,24 @@ public class AppanuncioApplication {
 
 	@Bean
 	public CommandLineRunner run(AnuncioRepository repository, AutomovelRepository automovelRepository,
-								 ItemRepository itemRepository, ResponsavelRepository responsavelRepository){
+								 ItemRepository itemRepository, ResponsavelRepository responsavelRepository, UsuarioRepository usuarioRepository){
 		return (args) -> {
 			//Cria lista de itens
 			Set<Item> itens = new HashSet<Item>();
 
 
 
-			//Cria novo Responsável
-			Responsavel r1 = new Responsavel("Responsavel 01", "11111111", "r1@mail", "123");
-			responsavelRepository.save(r1);
 
 			//Cria novo usuario
 			Usuario u1 = new Usuario();
 			u1.setNome("Usuario 01");
 			u1.setEmail("u1@mail");
 			u1.setSenha("123");
+
+			//Cria novo Responsável
+			Responsavel r1 = new Responsavel("Responsavel 01", "11111111", "r1@mail", "123");
+
+			responsavelRepository.save(r1);
 
 			//Cria novo automóvel
 			Automovel auto1 = new Automovel("Marca 01", 30, "M01", true);
@@ -63,7 +62,7 @@ public class AppanuncioApplication {
 			a1.setResponsavel(r1);
 			a1.setStatus("Ativo");
 			a1.setItens(itens);
-			a1.setUsuario(new Usuario("Usuario 01", "111111", "u1@mail", "123"));
+			a1.setUsuario(u1);
 
 			//Salva o anuncio
 			repository.save(a1);

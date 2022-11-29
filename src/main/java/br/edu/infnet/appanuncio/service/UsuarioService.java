@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -18,8 +19,8 @@ public class UsuarioService {
     private static Map<String, Usuario> mapaUsuario = new HashMap<String, Usuario>();
 
 
-    public static Usuario validar(String email, String senha){
-        Usuario usuario = mapaUsuario.get(email);
+    public Usuario validar(String email, String senha){
+        Usuario usuario = usuarioRepository.findByEmail(email);
 
         if (usuario != null && senha.equals(usuario.getSenha())){
             return usuario;
@@ -27,8 +28,8 @@ public class UsuarioService {
         return null;
     }
 
-    public static Collection<Usuario> obterLista(){
-        return mapaUsuario.values();
+    public Collection<Usuario> obterLista(){
+        return usuarioRepository.obterLista();
     }
 
 
@@ -40,6 +41,7 @@ public class UsuarioService {
     }
 
     public void excluir(String email){
-        mapaUsuario.remove(email);
+        Usuario usuario = usuarioRepository.findByEmail(email);
+        usuarioRepository.delete(usuario);
     }
 }
